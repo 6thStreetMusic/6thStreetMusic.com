@@ -15,15 +15,36 @@ image: https://source.unsplash.com/BcoGknSqlDc/2000x1322?a=.png
 
 <section class="pad">
 	<div class="container">
-		<p class="editor-link"><a href="cloudcannon:collections/_staff_members" class="btn"><strong>&#9998;</strong> Manage Staff Members</a></p>
-		<ul class="staff">
-			{% for person in site.staff_members %}
-				<li>
-					<div class="square-image" style="background-image: url({% include relative-src.html src=person.image_path %})"></div>
-					<div class="name"><a target="_blank" href="https://twitter.com/{{ person.twitter_username }}">{{ person.name }}</a></div>
-					<div class="position">{{ person.position }}</div>
-				</li>
-			{% endfor %}
-		</ul>
+		<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbMkTMo_O9qGQTr4JiLNdwf1A3Qo81EbU&callback=initMap">
+    </script>
+  </body>
+</html>
 	</div>
 </section>
